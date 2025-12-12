@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch src/app.js",
-    "seed:artist": "node src/seeders/artists.js"
+    "seed:artist": "node src/seeders/artists.js",
+    "seed:event": "node src/seeders/events.js"
   },
   "keywords": [],
   "author": "",

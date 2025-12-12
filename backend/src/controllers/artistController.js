@@ -50,38 +50,38 @@ export const getArtistById = async (req, res) => {
 };
 
 
-export const updateArtist = async (req, res) => {
-  try {
-    const { id } = req.params;
+// export const updateArtist = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const artist = await Artist.findByPk(id);
-    if (!artist) return res.status(404).json({ message: "Artist not found" });
+//     const artist = await Artist.findByPk(id);
+//     if (!artist) return res.status(404).json({ message: "Artist not found" });
 
-    await artist.update(req.body);
+//     await artist.update(req.body);
 
-    res.json({
-      message: "Artist updated successfully",
-      artist
-    });
+//     res.json({
+//       message: "Artist updated successfully",
+//       artist
+//     });
 
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };
 
 
-export const deleteArtist = async (req, res) => {
-  try {
-    const { id } = req.params;
+// export const deleteArtist = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const artist = await Artist.findByPk(id);
-    if (!artist) return res.status(404).json({ message: "Artist not found" });
+//     const artist = await Artist.findByPk(id);
+//     if (!artist) return res.status(404).json({ message: "Artist not found" });
 
-    await artist.destroy();
+//     await artist.destroy();
 
-    res.json({ message: "Artist deleted successfully" });
+//     res.json({ message: "Artist deleted successfully" });
 
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };

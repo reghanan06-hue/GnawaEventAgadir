@@ -44,9 +44,9 @@ export default function home() {
 
 
  <Text style={styles.titleApp}>  Dar Gnaoua  </Text>
-<Text style={styles.baniere}>  Bienvenue sur votre guide</Text> 
+ <Text style={styles.baniere}>  Bienvenue sur votre guide</Text> 
     <Text style={styles.baniere}>complet de l’Évènement </Text>
-   <Text style={styles.baniere}>  Gnaoua à Agadir</Text> 
+    <Text style={styles.baniere}>  Gnaoua à Agadir</Text> 
 <TouchableOpacity style={styles.BttnGo} onPress={() =>  router.push("/artist")}>
   <Text style={styles.textBtn}>Explorer</Text>
 </TouchableOpacity> 
