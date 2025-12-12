@@ -1,5 +1,6 @@
 
 import Artist from "../models/Artist.js";
+import EventInfo from "../models/EventInfo.js";
 
 export const createArtist = async (req, res) => {
   try {
@@ -37,7 +38,9 @@ export const getArtistById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const artist = await Artist.findByPk(id);
+    const artist = await Artist.findByPk(id,{
+      include:EventInfo
+    });
 
     if (!artist) {
       return res.status(404).json({ message: "Artist not found" });

@@ -62,6 +62,8 @@ export default function artist() {
           justifyContent: "center",
           alignItems: "center",
         }}
+        // onPress={() => router.push(`./artist/${item.id}`)}
+        // router.push(`/artist/${item.id}`);
         onPress={() => router.push(`./artist/${item.id}`)}
       >
         <Image
@@ -157,9 +159,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 30,
     padding: 25,
-    shadowColor: "#000",
-    shadowOpacity: 0.4,
-    shadowRadius: 9,
-    elevation: 6,
+    // shadowColor: "#71e26fff",
+    // shadowOpacity: 0.4,
+    // shadowRadius: 9,
+    // elevation: 6,
   },
 });
