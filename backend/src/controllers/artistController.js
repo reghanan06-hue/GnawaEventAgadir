@@ -1,14 +1,14 @@
-// controllers/ArtistController.js
 
 import Artist from "../models/Artist.js";
 
 export const createArtist = async (req, res) => {
   try {
-    const { firstname, lastname, photo_url, status } = req.body;
+    const { firstname, lastname,bio, photo_url, status } = req.body;
 
     const artist = await Artist.create({
       firstname,
       lastname,
+      bio,
       photo_url,
       status
     });

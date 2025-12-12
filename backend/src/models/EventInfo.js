@@ -1,24 +1,45 @@
-
 import { DataTypes } from "sequelize";
-import sequelize from "../config/db.js";
+import { sequelize } from "../config/db.js";   // ✔ bon import
+import Artist from "./Artist.js";              // ✔ bon chemin
 
-const Artist = sequelize.define("EventInfo", {
-    id: { type: DataTypes.INTEGER,
-         primaryKey: true,
-          autoIncrement: true },
+const EventInfo = sequelize.define("EventInfo", {
+  id: { 
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
 
-    firstname  : { type: DataTypes.STRING, 
-        allowNull: false },
+  artist_id: {                     
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Artist,
+      key: "id",
+    },
+    onDelete: "CASCADE",
+  },
 
-    lastname  : { type: DataTypes.STRING, 
-        allowNull: false },
+  scene_spectacle: {     
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 
-        photo_url : { type: DataTypes.STRING, 
-        unique: true, 
-        allowNull: false },
-        
-    created_at : { type: DataTypes.DATE,
-         allowNull: false },
+  date_concert: {        
+    type: DataTypes.DATEONLY,
+    allowNull: false,
+  },
+
+  heure_debut: {        
+    type: DataTypes.TIME,
+  },
+
+  heure_fin: {           
+    type: DataTypes.TIME,
+  },
 });
 
-export default Artist;
+
+Artist.hasMany(EventInfo, { foreignKey: "artist_id" });
+EventInfo.belongsTo(Artist, { foreignKey: "artist_id" });
+
+export default EventInfo;

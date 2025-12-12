@@ -8,12 +8,17 @@ const Artist = sequelize.define("Artist", {
     autoIncrement: true
   },
 
-      firstname: {
+    firstname: {
     type: DataTypes.STRING,
     allowNull: false
   },
 
   lastname: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+
+  bio: {
     type: DataTypes.STRING,
     allowNull: false
   },

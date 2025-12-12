@@ -8,9 +8,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+// GET /api/artists - Liste tous les artistes
 app.use("/artist", artistRoutes);
-// app.use("/tasks", taskRoutes);
+
+
+// GET /api/artists/:id - Détails d'un artiste
 
 const PORT = process.env.PORT || 4000;
 
