@@ -19,7 +19,7 @@ export default function _layout() {
         />
 
         <Stack.Screen
-          name="Booking"
+          name="booking"
           options={{ headerTitle: "Reservation  ", headerShown: true }}
         />
       </Stack>

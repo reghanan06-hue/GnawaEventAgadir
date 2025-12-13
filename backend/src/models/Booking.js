@@ -42,7 +42,13 @@ const Booking = sequelize.define(
   }
 );
 
+// EventInfo.hasMany(Booking, { foreignKey: "event_id", as: "bookings" });
+// Booking.belongsTo(EventInfo, { foreignKey: "event_id", as: "event" });
+
 EventInfo.hasMany(Booking, { foreignKey: "event_id", as: "bookings" });
 Booking.belongsTo(EventInfo, { foreignKey: "event_id", as: "event" });
+
+EventInfo.hasMany(Booking, { foreignKey: "event_id" });
+EventInfo.belongsTo(EventInfo, { foreignKey: "event_id" });
 
 export default Booking;

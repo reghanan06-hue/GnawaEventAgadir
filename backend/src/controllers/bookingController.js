@@ -2,14 +2,14 @@ import Booking from "../models/Booking.js";
 import EventInfo from "../models/EventInfo.js";
 
 // ➤ Create Booking
-export const createBooking = async (req, res) => {
-  try {
-    const booking = await Booking.create(req.body);
-    res.status(201).json({ message: "Booking created", booking });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+// export const createBooking = async (req, res) => {
+//   try {
+//     const booking = await Booking.create(req.body);
+//     res.status(201).json({ message: "Booking created", booking });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };
 
 // ➤ Get all bookings
 export const getAllBookings = async (req, res) => {
@@ -22,6 +22,70 @@ export const getAllBookings = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const createBooking = async (req, res) => {
+  try {
+    const { event_id, firstname, lastname, nombre_person, prix } = req.body;
+
+    // Validation
+    if (!event_id || !firstname || !lastname || !nombre_person || !prix) {
+      return res.status(400).json({
+        error: "event_id, firstname, lastname, nombre_person et prix sont obligatoires"
+      });
+    }
+
+    // Vérifier si la réservation existe déjà
+    const existingBooking = await Booking.findOne({ where: { lastname } });
+    if (existingBooking) {
+      return res.status(409).json({ error: "Cette réservation existe déjà" });
+    }
+
+    // Création
+    const newBooking = await Booking.create({
+      event_id: Number(event_id),       // conversion en number
+      firstname,
+      lastname,
+      nombre_person: Number(nombre_person),
+      prix: Number(prix),
+    });
+
+    return res.status(201).json({
+      message: "Réservation créée avec succès",
+      booking: newBooking,
+    });
+  } catch (error) {
+    console.error("Erreur création Booking:", error);
+    return res.status(500).json({ error: "Erreur serveur" });
+  }
+};
+
+//=========================
+// export const createBooking = async (req, res) => {
+//   try {
+//     const { event_Id, firstname, lastname, nombre_person , prix } = req.body;
+
+//     if (!firstname || !lastname || !nombre_person || !prix ) {
+//       return res.status(400).json({ error: "eventId, firstname, lastname, nombre_person ,prix sont obligatoires" });
+//     }
+
+//     const existingBoking = await Booking.findOne({ where: { lastname } });
+//     if (existingBoking) {
+//       return res.status(409).json({ error: "Cette resvation existe déjà" });
+//     }
+
+// const newBooking= await Booking.create({
+//   event_Id,
+//   firstname,
+//   lastname,
+//   nombre_person,
+//   prix,
+// });
+//     return res.status(201).json({ message: "Reservation créée avec succès", Booking: newTask });
+//   } catch (error) {
+//     console.error("Erreur création Task:", error);
+//     return res.status(500).json({ error: "Erreur serveur" });
+//   }
+// };
 
 // ➤ Get one booking by ID
 export const getBookingById = async (req, res) => {
