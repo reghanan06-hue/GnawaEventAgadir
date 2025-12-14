@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { instance } from "../sevices/instance";
+import { useRouter } from "expo-router";
 
 export default function ReservationForm() {
   const [eventId, setEventId] = useState("");
@@ -15,6 +16,7 @@ export default function ReservationForm() {
   const [lastname, setLastname] = useState("");
   const [people, setPeople] = useState("");
   const [price, setPrice] = useState(0);
+  const router = useRouter();
 
   const handleConfirm = async () => {
     if (!eventId || !firstname || !lastname || !people) {
@@ -33,7 +35,12 @@ export default function ReservationForm() {
 
       console.log("Réponse backend:", response.data);
 
-      Alert.alert("Succès", "Réservation effectuée avec succès ✅");
+      Alert.alert("Succès", "Réservation effectuée avec succès", [
+        {
+          text: "OK",
+          onPress: () => router.replace("/mybooking"),
+        },
+      ]);
 
       setFirstname("");
       setLastname("");
@@ -47,7 +54,7 @@ export default function ReservationForm() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Réservation</Text>
+      <Text style={styles.title}>Reservation</Text>
       <TextInput
         placeholder="ID Event"
         style={styles.input}
@@ -56,14 +63,14 @@ export default function ReservationForm() {
         keyboardType="numeric"
       />
       <TextInput
-        placeholder="Prénom"
+        placeholder="Firstname"
         style={styles.input}
         value={firstname}
         onChangeText={setFirstname}
       />
 
       <TextInput
-        placeholder="Nom"
+        placeholder="Lastname"
         style={styles.input}
         value={lastname}
         onChangeText={setLastname}
@@ -78,7 +85,7 @@ export default function ReservationForm() {
       /> */}
 
       <TextInput
-        placeholder="Nombre de personnes"
+        placeholder="Number of people"
         style={styles.input}
         value={people}
         onChangeText={(text) => {
@@ -93,7 +100,15 @@ export default function ReservationForm() {
       </Text>
 
       <TouchableOpacity style={styles.button} onPress={handleConfirm}>
-        <Text style={styles.buttonText}>Confirmer</Text>
+        <Text style={styles.buttonText}>confirm</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          router.push("/mybooking");
+        }}
+      >
+        <Text style={styles.buttonText}>List of booking</Text>
       </TouchableOpacity>
     </View>
   );
@@ -121,7 +136,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 8,
     padding: 10,
-    marginBottom: 15,
+    marginBottom: 14,
   },
   price: {
     fontSize: 18,
@@ -133,9 +148,11 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 8,
     alignItems: "center",
+    marginBottom: 12,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
+    fontSize: 24,
   },
 });

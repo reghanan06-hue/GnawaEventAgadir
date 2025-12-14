@@ -62,8 +62,6 @@ export default function artist() {
           justifyContent: "center",
           alignItems: "center",
         }}
-        // onPress={() => router.push(`./artist/${item.id}`)}
-        // router.push(`/artist/${item.id}`);
         onPress={() => router.push(`./artist/${item.id}`)}
       >
         <Image

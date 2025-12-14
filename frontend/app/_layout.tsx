@@ -22,6 +22,11 @@ export default function _layout() {
           name="booking"
           options={{ headerTitle: "Reservation  ", headerShown: true }}
         />
+
+        <Stack.Screen
+          name="mybooking"
+          options={{ headerTitle: "My reservations  ", headerShown: true }}
+        />
       </Stack>
     </QueryClientProvider>
   );

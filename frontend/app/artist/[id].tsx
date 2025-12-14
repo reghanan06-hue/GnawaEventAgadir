@@ -59,7 +59,6 @@ export default function DetailArtist() {
     );
   };
 
-  // --------- ICI : le vrai return du composant ----------
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#ffffffff" />
@@ -78,7 +77,7 @@ export default function DetailArtist() {
           <Text style={styles.name}>Status : {data.status}</Text>
         </View>
 
-        <Text style={styles.sectionTitle}>Événements</Text>
+        <Text style={styles.sectionTitle}>The event</Text>
 
         {data.EventInfos && data.EventInfos.length > 0 ? (
           data.EventInfos.map((event: any) => (
@@ -101,7 +100,7 @@ export default function DetailArtist() {
           ))
         ) : (
           <View style={styles.card}>
-            <Text style={styles.name}>Aucun événement trouvé</Text>
+            <Text style={styles.name}>No events found</Text>
           </View>
         )}
       </ScrollView>
