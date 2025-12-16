@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useGetArtist } from "../sevices/artists/queries";
+// import { handleUrlParams } from "expo-router/build/fork/getStateFromPath-forks";
 type Artist = {
   id: number;
   firstname: string;
@@ -31,8 +32,6 @@ export default function artist() {
         alignItems: "center",
       }}
     >
-      {/* <Text>Artist Screen</Text> */}
-
       <Image
         source={{ uri: item.photo_url }}
         style={{

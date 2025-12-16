@@ -44,7 +44,7 @@ export default function DetailArtist() {
   const handleReservation = (event: any) => {
     Alert.alert(
       "Confirmation",
-      `Vous avez réservé pour le concert le ${event.date_concert} !`,
+      `You have booked for the concert on ${event.date_concert} !`,
       [
         {
           text: "Yes",
@@ -84,17 +84,17 @@ export default function DetailArtist() {
             <View key={event.id} style={styles.detailEvent}>
               <Text style={styles.eventTitle}>Date : {event.date_concert}</Text>
               <Text style={styles.eventText}>
-                Heure : {event.heure_debut} - {event.heure_fin}
+                Time : {event.heure_debut} - {event.heure_fin}
               </Text>
               <Text style={styles.eventText}>
-                Scène : {event.scene_spectacle}
+                Location : {event.scene_spectacle}
               </Text>
 
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => handleReservation(event)}
               >
-                <Text style={styles.buttonText}>Réserver</Text>
+                <Text style={styles.buttonText}>Booking</Text>
               </TouchableOpacity>
             </View>
           ))

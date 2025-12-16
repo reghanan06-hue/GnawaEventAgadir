@@ -1,46 +1,4 @@
-// import { create } from "zustand";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// const STORAGE_KEY = "@reservations";
-
-// export const useBookingStore = create((set, get) => ({
-//   bookings: [],
-
-//   loadBookings: async () => {
-//     try {
-//       const stored = await AsyncStorage.getItem(STORAGE_KEY);
-//       if (stored) {
-//         set({ bookings: JSON.parse(stored) });
-//       }
-//     } catch (e) {
-//       console.log("loadBookings error:", e);
-//     }
-//   },
-
-//   addBooking: async (booking) => {
-//     const updated = [...get().bookings, booking];
-
-//     // 🔥 1. update UI immediately
-//     set({ bookings: updated });
-
-//     // 🔥 2. persist after
-//     try {
-//       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-//     } catch (e) {
-//       console.log("addBooking error:", e);
-//     }
-//   },
-
-//   clearBookings: async () => {
-//     set({ bookings: [] });
-
-//     try {
-//       await AsyncStorage.removeItem(STORAGE_KEY);
-//     } catch (e) {
-//       console.log("clearBookings error:", e);
-//     }
-//   },
-// }));
 import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -69,3 +27,17 @@ export const useBookingStore = create((set) => ({
     set({ bookings: [] });
   },
 }));
+
+// import create from "zustand";
+
+// export type ImageStore = {
+//   images: string[];
+//   setImages: (imgs: string[]) => void;
+// };
+
+// // Ici on utilise le type ImageStore pour typer le store
+// export const useImageStore = create<ImageStore>((set) => ({
+//   images: [],
+//   setImages: (imgs) => set({ images: imgs }),
+// }));
+

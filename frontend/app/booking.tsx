@@ -54,7 +54,6 @@ export default function ReservationForm() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Reservation</Text>
       <TextInput
         placeholder="ID Event"
         style={styles.input}
@@ -96,19 +95,20 @@ export default function ReservationForm() {
       />
 
       <Text style={styles.price}>
-        Prix : <Text style={{ color: "red" }}>{price}</Text> DH
+        Price : <Text style={{ color: "red" }}>{price}</Text> MDH
       </Text>
 
       <TouchableOpacity style={styles.button} onPress={handleConfirm}>
         <Text style={styles.buttonText}>confirm</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
           router.push("/mybooking");
         }}
       >
-        <Text style={styles.buttonText}>List of booking</Text>
+        <Text style={styles.buttonText}>Dashboard of booking</Text>
       </TouchableOpacity>
     </View>
   );
@@ -153,6 +153,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 20,
   },
 });

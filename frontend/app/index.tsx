@@ -47,9 +47,9 @@ export default function home() {
         ]}
       >
         <Text style={styles.titleApp}> Dar Gnawa</Text>
-        <Text style={styles.baniere}> Bienvenue sur votre guide</Text>
-        <Text style={styles.baniere}>complet de l’Évènement </Text>
-        <Text style={styles.baniere}> Gnaoua à Agadir</Text>
+        <Text style={styles.baniere}> Welcome to your guide</Text>
+        <Text style={styles.baniere}>guide to the Gnaoua </Text>
+        <Text style={styles.baniere}> event in Agadir</Text>
         <TouchableOpacity
           style={styles.BttnGo}
           onPress={() => router.push("/artist")}

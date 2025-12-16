@@ -11,7 +11,7 @@ export default function _layout() {
         <Stack.Screen name="index" />
         <Stack.Screen
           name="artist"
-          options={{ headerTitle: "the list of artists", headerShown: true }}
+          options={{ headerTitle: "The list of artists", headerShown: true }}
         />
         <Stack.Screen
           name="id"
@@ -26,6 +26,10 @@ export default function _layout() {
         <Stack.Screen
           name="mybooking"
           options={{ headerTitle: "My reservations  ", headerShown: true }}
+        />
+        <Stack.Screen
+          name="SaveBookings"
+          options={{ headerTitle: "List of booking saved ", headerShown: true }}
         />
       </Stack>
     </QueryClientProvider>

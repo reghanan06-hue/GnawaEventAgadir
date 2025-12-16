@@ -13,6 +13,8 @@ router.post("/", createBooking);
 router.get("/", getAllBookings);
 router.get("/:id", getBookingById);
 router.put("/:id", updateBooking);
+// router.put("/booking/:id", updateBooking);
+
 router.delete("/:id", deleteBooking);
 
 export default router;
